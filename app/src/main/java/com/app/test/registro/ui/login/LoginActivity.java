@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.test.registro.DatabaseHelper;
 import com.app.test.registro.R;
 import com.app.test.registro.ui.login.LoginViewModel;
 import com.app.test.registro.ui.login.LoginViewModelFactory;
@@ -29,6 +30,7 @@ import com.app.test.registro.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private DatabaseHelper db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,8 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+
+        db = new DatabaseHelper(this);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {

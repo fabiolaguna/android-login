@@ -1,5 +1,6 @@
 package com.app.test.registro;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,7 +20,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase(); //Crea o abre (si ya existe) la base de datos
     }
 
     @Override
@@ -38,5 +38,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("drop table if exists " + DATABASE_NAME);
         onCreate(db);
+    }
+
+    public boolean insert(String email, String contraseña, String nombre, String apellido){
+
+        SQLiteDatabase db = this.getWritableDatabase(); //Crea o abre (si ya existe) la base de datos
+
+        ContentValues content = new ContentValues();
+
+        content.put(COLUMN1, email);
+        content.put(COLUMN2, contraseña);
+        content.put(COLUMN3, nombre);
+        content.put(COLUMN4, apellido);
+
+        if(db.insert(TABLE_NAME, null, content) == -1){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

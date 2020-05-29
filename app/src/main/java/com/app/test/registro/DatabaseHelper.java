@@ -2,6 +2,7 @@ package com.app.test.registro;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -56,5 +57,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor getData(String email, String password){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN1 + " = " + email + " AND " + COLUMN2 + " = " + password, null);
+
+        return cursor; //todo Look where i have to call this method. The code is not the same of the tutorial.
     }
 }

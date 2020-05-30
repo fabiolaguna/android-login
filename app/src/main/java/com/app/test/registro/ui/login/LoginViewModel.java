@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
+import com.app.test.registro.DatabaseHelper;
 import com.app.test.registro.data.LoginRepository;
 import com.app.test.registro.data.Result;
 import com.app.test.registro.data.model.LoggedInUser;
@@ -29,13 +30,13 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+    public void login(String username, String password, DatabaseHelper db) {
+
+        Result<LoggedInUser> result = loginRepository.login(username, password, db);
 
         if (result instanceof Result.Success) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
+            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
         }

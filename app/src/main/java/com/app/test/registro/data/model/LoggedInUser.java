@@ -5,19 +5,37 @@ package com.app.test.registro.data.model;
  */
 public class LoggedInUser {
 
-    private String userId;
-    private String displayName;
+    private String email;
+    private String name;
+    private String lastName;
 
-    public LoggedInUser(String userId, String displayName) {
-        this.userId = userId;
-        this.displayName = displayName;
+    public LoggedInUser(String email, String name, String lastName) {
+        this.email = email;
+        this.name = name;
+        this.lastName = lastName;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

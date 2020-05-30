@@ -2,6 +2,7 @@ package com.app.test.registro;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -13,6 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "registro_usuarios";
     public static final String TABLE_NAME = "usuarios";
 
+    public static final String COLUMN0 = "id";
     public static final String COLUMN1 = "email";
     public static final String COLUMN2 = "contraseña";
     public static final String COLUMN3 = "nombre";
@@ -56,5 +58,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor getData(String email, String password){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN1 + " = \"" + email + "\" AND " + COLUMN2 + " = \"" + password + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        return cursor; //todo Look where i have to call this method. The code is not the same of the tutorial.
     }
 }

@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.app.test.registro.DatabaseHelper;
 import com.app.test.registro.R;
 import com.app.test.registro.RegisterActivity;
+import com.app.test.registro.ShowUserActivity;
 import com.app.test.registro.ui.login.LoginViewModel;
 import com.app.test.registro.ui.login.LoginViewModelFactory;
 
@@ -128,8 +129,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ShowUserActivity.class);
+        startActivity(intent);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

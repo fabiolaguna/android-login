@@ -27,8 +27,6 @@ import com.app.test.registro.DatabaseHelper;
 import com.app.test.registro.R;
 import com.app.test.registro.RegisterActivity;
 import com.app.test.registro.ShowUserActivity;
-import com.app.test.registro.ui.login.LoginViewModel;
-import com.app.test.registro.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
+        final EditText passwordEditText = findViewById(R.id.idUser);
         final Button loginButton = findViewById(R.id.sign_in);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 

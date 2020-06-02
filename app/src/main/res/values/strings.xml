@@ -11,5 +11,13 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login fallido, usuario invalido"</string>
     <string name="show_user_name">"Nombre:"</string>
-    <string name="show_user_text">"Anonimo"</string>
+    <string name="show_user_last_name">"Apellido:"</string>
+    <string name="show_user_email">"Email:"</string>
+    <string name="show_user_id">"ID:"</string>
+    <string name="show_user_text_name">"Anonimo"</string>
+    <string name="show_user_text_last_name">"Anonimo"</string>
+    <string name="show_user_text_email">"Anonimo"</string>
+    <string name="show_user_text_id">"Anonimo"</string>
+    <string name="show_user_button_edit">"Editar"</string>
+    <string name="show_user_button_delete">"Eliminar"</string>
 </resources>

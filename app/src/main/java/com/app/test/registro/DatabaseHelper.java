@@ -63,9 +63,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getData(String email, String password){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN1 + " = \"" + email + "\" AND " + COLUMN2 + " = \"" + password + "\"";
-        Cursor cursor = db.rawQuery(query, null);
+        String[] parameters = {email, password};
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN1 + " = ? AND " + COLUMN2 + " = ? ";
+        Cursor cursor = db.rawQuery(query, parameters);
 
-        return cursor; //todo Look where i have to call this method. The code is not the same of the tutorial.
+        return cursor;
     }
 }

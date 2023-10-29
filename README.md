@@ -1,3 +1,3 @@
-# Android-Test
+# android-login
 
-Testing Android with SQLite in Java. User registration and login
+User registration and login using Android with SQLite, in Java.
